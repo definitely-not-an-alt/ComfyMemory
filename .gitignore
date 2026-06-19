@@ -1,0 +1,10 @@
+node_modules/
+dist/
+*.log
+.env
+.DS_Store
+Thumbs.db
+_scripts/
+SillyTavern
+.agents
+server/config.json

@@ -1,0 +1,85 @@
+<div class="comfymemory_settings">
+    <div class="inline-drawer">
+        <div class="inline-drawer-toggle inline-drawer-header">
+            <b>
+                <span>ComfyMemory</span>
+            </b>
+            <div class="inline-drawer-icon fa-solid fa-circle-chevron-down down"></div>
+        </div>
+        <div class="inline-drawer-content">
+            <p class="comfymemory_description">
+                Manages VRAM during ComfyUI image generation by temporarily unloading the LLM
+                to prevent OOM errors on dual-GPU setups.
+            </p>
+
+            <label class="alike_label" for="comfymemory_enabled">
+                <span class="alike_switch">
+                    <input type="checkbox" id="comfymemory_enabled" />
+                    <span class="alike_switch_container"></span>
+                </span>
+                <span class="comfymemory_label">Enable ComfyMemory</span>
+            </label>
+            <p class="comfymemory_hint">
+                Intercepts ComfyUI generation and routes through VRAM management sequence.
+                Only works when SD source is set to ComfyUI (standard).
+            </p>
+
+            <label class="alike_label" for="comfymemory_save_kv_cache">
+                <span class="alike_switch">
+                    <input type="checkbox" id="comfymemory_save_kv_cache" />
+                    <span class="alike_switch_container"></span>
+                </span>
+                <span class="comfymemory_label">Save/Restore KV Cache</span>
+            </label>
+            <p class="comfymemory_hint">
+                Skip for SWA models or if prompt reprocessing is fast enough.
+                When disabled, only unload/reload steps are performed.
+            </p>
+
+            <label class="alike_label" for="comfymemory_debug">
+                <span class="alike_switch">
+                    <input type="checkbox" id="comfymemory_debug" />
+                    <span class="alike_switch_container"></span>
+                </span>
+                <span class="comfymemory_label">Debug Logging</span>
+            </label>
+
+            <hr style="margin: 12px 0; border: none; border-top: 1px solid var(--border-color, #333);">
+
+            <h4 style="margin: 0 0 4px 0; font-size: 0.9em; color: var(--text-color-primary, #fff);">Server Configuration</h4>
+            <p class="comfymemory_hint">
+                Controls the server plugin. Click "Sync to Server" to apply.
+            </p>
+
+            <div class="comfymemory_input_group">
+                <label for="comfymemory_llamacpp_url">llama.cpp Server URL</label>
+                <input type="text" id="comfymemory_llamacpp_url" value="http://127.0.0.1:8080" />
+            </div>
+
+            <div class="comfymemory_input_group">
+                <label for="comfymemory_model_id">Model Identifier</label>
+                <input type="text" id="comfymemory_model_id" value="" placeholder="Leave empty to auto-detect" />
+            </div>
+
+            <div class="comfymemory_input_group">
+                <label for="comfymemory_slot_save_path">Slot Save Path</label>
+                <input type="text" id="comfymemory_slot_save_path" value="/dev/shm" />
+                <p class="comfymemory_hint">Directory llama.cpp uses for --slot-save-path. Used for cleanup after restore.</p>
+            </div>
+
+            <div class="comfymemory_input_group">
+                <label for="comfymemory_kv_cache_filename">KV Cache Filename</label>
+                <input type="text" id="comfymemory_kv_cache_filename" value="st_active_chat.bin" />
+            </div>
+
+            <div class="comfymemory_input_group">
+                <label for="comfymemory_slot_number">Slot Number</label>
+                <input type="number" id="comfymemory_slot_number" value="0" min="0" />
+            </div>
+
+            <button id="comfymemory_sync_server" class="menu_button">Sync to Server</button>
+
+            <div id="comfymemory_status" class="comfymemory_status" style="margin-top: 8px;"></div>
+        </div>
+    </div>
+</div>

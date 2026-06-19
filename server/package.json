@@ -1,0 +1,14 @@
+{
+  "name": "comfy-memory",
+  "version": "1.0.0",
+  "description": "VRAM OOM prevention for ComfyUI image generation in SillyTavern",
+  "main": "index.mjs",
+  "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/definitely-not-an-alt/ComfyMemory.git"
+  },
+  "homepage": "https://github.com/definitely-not-an-alt/ComfyMemory",
+  "author": "definitely-not-an-alt",
+  "license": "MIT"
+}

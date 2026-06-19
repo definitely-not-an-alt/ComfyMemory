@@ -1,0 +1,15 @@
+{
+    "display_name": "ComfyMemory",
+    "js": "index.js",
+    "css": "style.css",
+    "author": "definitely-not-an-alt",
+    "version": "1.0.0",
+    "homePage": "https://github.com/definitely-not-an-alt/ComfyMemory",
+    "auto_update": false,
+    "minimum_client_version": "1.18.0",
+    "hooks": {
+        "activate": "onActivate",
+        "disable": "onDisable",
+        "clean": "onClean"
+    }
+}
