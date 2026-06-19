@@ -51,7 +51,7 @@ export async function onActivate() {
         // Render settings panel
         try {
             const settingsHtml = await context.renderExtensionTemplateAsync(
-                'third-party/comfymemory',
+                'third-party/ComfyMemory',
                 'settings',
             );
             $('#extensions_settings').append(settingsHtml);
